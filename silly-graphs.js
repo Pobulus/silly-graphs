@@ -1,4 +1,5 @@
-class SillyGraph {
+'use strict'
+module.exports = class SillyGraph {
     margins = {
         "left": 25,
         "right": 25,
