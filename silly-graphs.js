@@ -141,6 +141,7 @@ class SillyGraph {
         }
         console.log(this.scaleX)
         console.log(this.scaleY)
+        console.log(this.minX, this.minY, this.maxX, this.maxY);
     };
 }
 

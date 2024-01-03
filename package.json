@@ -1,0 +1,23 @@
+{
+  "name": "silly-graphs",
+  "version": "1.0.1",
+  "description": "Yet another silly graph making module",
+  "main": "silly-graphs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pobulus/silly-graphs.git"
+  },
+  "keywords": [
+    "silly",
+    "graph"
+  ],
+  "author": "Pobulus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pobulus/silly-graphs/issues"
+  },
+  "homepage": "https://github.com/Pobulus/silly-graphs#readme"
+}
