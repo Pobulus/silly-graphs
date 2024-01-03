@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script src="silly-graphs.js"></script>
+        
+    </head>
+    <body>
+        <canvas id="graph" onloaded="new SillyGraph(this).load(finances)" width="1200" height="700" style="border:1px solid #000000;"></canvas>
+        <script> 
+            const finances = {
+                "axisX" : {
+                    "labels" : [
+                        "Sty 2023",
+                        "Lut 2023",
+                        "Mar 2023",
+                        "Kwi 2023",
+                        "Maj 2023",
+                        "Cze 2023",
+                        "Lip 2023",
+                        "Sie 2023",
+                        "Wrz 2023",
+                        "Paź 2023",
+                        "Lis 2023",
+                        "Gru 2023",
+                    ],
+                    "labelTemplate" : "#"
+                },
+                "axisY" : {
+                    "min" : 0,
+                    "max" : 100, 
+                    "labels" : 10,
+                    "labelTemplate" : "# zł"
+                },
+                "points" : [
+                    {"x": 0, "y": 5},
+                    {"x": 1, "y": 15},
+                    {"x": 2, "y": 50},
+                    {"x": 3, "y": 23},
+                    {"x": 4, "y": 34},
+                    {"x": 5, "y": 78},
+                    {"x": 6, "y": 0},
+                    {"x": 7, "y": 100},
+                    {"x": 8, "y": 5},
+                    {"x": 9, "y": 75},
+                    {"x": 10, "y": 65},
+                    {"x": 11, "y": 85},
+                ],
+                "config" : {
+                    // "color" : "red",
+                    "lineWidth": 3,
+                }
+            };
+            sillyGraph = new SillyGraph(document.getElementById("graph"))
+            sillyGraph.load(finances);
+        </script>
+    </body>
+</html>
