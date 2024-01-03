@@ -127,7 +127,7 @@ module.exports = class SillyGraph {
         this.scaleX = 1;
         this.scaleY = 1;
         this.context.clearRect(0, 0, this.width, this.height);
-        this.context.scale(0.5,0.5);
+        
         this.context.font = "12px Arial";
         this.drawAxis();
         if(graphData.axisX){
