@@ -1,5 +1,6 @@
 'use strict'
-module.exports = class SillyGraph {
+// module.exports = 
+class SillyGraph {
     margins = {
         "left": 25,
         "right": 25,
@@ -79,7 +80,7 @@ module.exports = class SillyGraph {
     drawLabelsX(axis){
         const labels = this.getLabels(axis)
         console.log("Labels", labels);
-        const stepX = (this.maxX - this.minX) / (labels.length-1);
+        const stepX = (this.maxX - this.minX) / (labels.length);
         const labelTemplate = axis.labelTemplate ? axis.labelTemplate : '#';
         labels.forEach((label, index) => {
             this.context.save();
@@ -127,6 +128,7 @@ module.exports = class SillyGraph {
         this.scaleX = 1;
         this.scaleY = 1;
         this.context.clearRect(0, 0, this.width, this.height);
+        this.context.scale(0.5,0.5);
         this.context.font = "12px Arial";
         this.drawAxis();
         if(graphData.axisX){
@@ -140,6 +142,7 @@ module.exports = class SillyGraph {
         if(graphData.points){
             this.drawPoints(graphData.points, graphData);
         }
+        
         console.log(this.scaleX);
         console.log(this.scaleY);
         console.log(this.minX);
