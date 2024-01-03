@@ -140,9 +140,12 @@ module.exports = class SillyGraph {
         if(graphData.points){
             this.drawPoints(graphData.points, graphData);
         }
-        console.log(this.scaleX)
-        console.log(this.scaleY)
-        console.log(this.minX, this.minY, this.maxX, this.maxY);
+        console.log(this.scaleX);
+        console.log(this.scaleY);
+        console.log(this.minX);
+        console.log(this.minY);
+        console.log(this.maxX);
+        console.log(this.maxY);
     };
 }
 

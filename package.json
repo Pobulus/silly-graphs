@@ -1,6 +1,6 @@
 {
   "name": "silly-graphs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Yet another silly graph making module",
   "main": "silly-graphs.js",
   "scripts": {
