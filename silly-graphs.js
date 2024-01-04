@@ -4,7 +4,7 @@ module.exports = class SillyGraph {
         "left": 25,
         "right": 25,
         "top": 25,
-        "bottom": 25,
+        "bottom": 50,
     }
 
     constructor(canvas){
@@ -25,9 +25,9 @@ module.exports = class SillyGraph {
         this.context.beginPath();
     
         // Y arrow tip
-        this.context.moveTo(this.margins.left, 2*this.margins.top);
+        this.context.moveTo(2*this.margins.left-0.5*this.margins.right, 2*this.margins.top);
         this.context.lineTo(2*this.margins.left, this.margins.top);
-        this.context.lineTo(3*this.margins.left, 2*this.margins.top);
+        this.context.lineTo(2*this.margins.left+0.5*this.margins.right, 2*this.margins.top);
         this.context.stroke();
     
         // X line
@@ -38,9 +38,9 @@ module.exports = class SillyGraph {
         this.context.stroke();
     
         // X arrow tip
-        this.context.moveTo(this.width-2*this.margins.right, this.height-3*this.margins.top);
-        this.context.lineTo(this.width-this.margins.right, this.height-2*this.margins.top);
-        this.context.lineTo(this.width-2*this.margins.right, this.height-this.margins.top);
+        this.context.moveTo(this.width-2*this.margins.right, this.height-2*this.margins.bottom-0.5*this.margins.top);
+        this.context.lineTo(this.width-this.margins.right, this.height-2*this.margins.bottom);
+        this.context.lineTo(this.width-2*this.margins.right, this.height-2*this.margins.bottom+0.5*this.margins.top);
         this.context.stroke();
     }
     getLabels(axis){
@@ -83,9 +83,9 @@ module.exports = class SillyGraph {
         const labelTemplate = axis.labelTemplate ? axis.labelTemplate : '#';
         labels.forEach((label, index) => {
             this.context.save();
-            this.context.translate(this.minX+this.margins.left*2+(index-1)*stepX, this.height-this.margins.bottom);
-            this.context.rotate(-Math.PI/4);
-            this.context.fillText(labelTemplate.replace('#', String(label)), 0, this.margins.bottom);
+            this.context.translate(this.minX+(index)*stepX, this.minY+2.5*this.margins.bottom);
+            this.context.rotate(-Math.PI/2);
+            this.context.fillText(labelTemplate.replace('#', String(label)), 0, 6);
             this.context.restore();
         });
     };
@@ -116,16 +116,27 @@ module.exports = class SillyGraph {
         this.context.stroke();
     
     }
+    calculateMargins(){
+        this.margins.left = this.width*0.02;
+        this.margins.right = this.width*0.02;
+        this.margins.top = this.height*0.04;
+        this.margins.bottom = this.height*0.08;
+    }
     
     load(graphData) {
-        this.width  = this.canvas.getBoundingClientRect().width;
-        this.height  = this.canvas.getBoundingClientRect().height;
+        this.width  = this.canvas.getBoundingClientRect().width/1;
+        this.height  = this.canvas.getBoundingClientRect().height/1;
         this.maxY = this.margins.top*2.5;
         this.minY = this.height-2.5*this.margins.bottom;
         this.maxX = this.width-this.margins.right*2;
         this.minX = 2*this.margins.left;
         this.scaleX = 1;
         this.scaleY = 1;
+        console.log(this.minX);
+        console.log(this.minY);
+        console.log(this.maxX);
+        console.log(this.maxY);
+        this.calculateMargins();
         this.context.clearRect(0, 0, this.width, this.height);
         
         this.context.font = "12px Arial";
@@ -144,10 +155,7 @@ module.exports = class SillyGraph {
         
         console.log(this.scaleX);
         console.log(this.scaleY);
-        console.log(this.minX);
-        console.log(this.minY);
-        console.log(this.maxX);
-        console.log(this.maxY);
+
     };
 }
 
